@@ -12,10 +12,12 @@ var chao
 var parede1
 var parede2
 
+
 function preload()
 {
 	
 }
+
 
 function setup() {
 	createCanvas(800, 700);
@@ -42,24 +44,20 @@ isStatic : true
 }
 
 
-
-
-bola = Bodies.circle(200,150,30,bola_options)
+bola = Bodies.circle(200,150,20,bola_options)
  World.add(world,bola)
 
 chao = Bodies.rectangle(900,400,9999,10,chao_options);
 World.add(world,chao);
 
-parede1 = Bodies.rectangle(700,380,10,10,parede1_options);
+parede1 = Bodies.rectangle(700,380,5,50,parede1_options);
 World.add(world,parede1);
 
-parede2 = Bodies.rectangle(600,380,9,10,parede2_options);
+parede2 = Bodies.rectangle(600,380,5,50,parede2_options);
 World.add(world,parede2);
 
-
-
 }
-
+	
 
 function draw() {
   rectMode(CENTER);
@@ -67,20 +65,17 @@ function draw() {
   drawSprites();
  
 ellipse(bola.position.x,bola.position.y,20);
-rect(chao.position.x,chao.position.y,9999,20);
+rect(chao.position.x,chao.position.y,9999,10);
 rect(parede1.position.x,parede1.position.y,5,50);
 rect(parede2.position.x,parede2.position.y,5,50);
 
-function keyPressed () {
- if (KeyCode === UP_ARROW) {
-	Matter.Body.applyForce(bola,bola.position,{x:85,y:-85})
-
-  }
-
 
 }
-
+  function keyPressed () {
+	if (keyCode === UP_ARROW){
+	Matter.Body.applyForce(bola,{x:0,y:0},{x:0.05,y:-0.05})
 }
-
+	
+}
 
 
